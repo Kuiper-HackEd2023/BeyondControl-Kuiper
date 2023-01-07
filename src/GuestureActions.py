@@ -37,9 +37,13 @@ class GuestureActions:
         win32gui.ShowWindow(self._prev_gui_id, win32con.SW_MAXIMIZE)
 
     def changeVolume(self, decrease: bool = False):
+        self._updateActiveInfo()
         volume_key = Key.media_volume_down if decrease else Key.media_volume_up
         self._keyboard.press(volume_key)
         return
+
+    def changeMediaStatus(self):
+        self._keyboard.press(Key.media_play_pause)
 
     def tester(self):
         self._updateActiveInfo()

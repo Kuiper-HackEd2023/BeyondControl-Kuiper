@@ -1,4 +1,3 @@
-
 import win32process
 import win32gui
 import win32con
@@ -6,7 +5,7 @@ import psutil
 from pynput.keyboard import Key, Controller
 
 
-class Windows:
+class GuestureActions:
     _keyboard = Controller()
 
     def _updateActiveInfo(self):

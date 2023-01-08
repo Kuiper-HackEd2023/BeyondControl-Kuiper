@@ -1,0 +1,21 @@
+{
+    "none": "",
+    "like": "increaseVolume",
+    "call": "maximizeWindow",
+    "dislike": "decreaseVolume",
+    "fist": "minimizeWindow",
+    "four": "",
+    "mute": "toggleMute",
+    "ok": "",
+    "one": "",
+    "palm": "",
+    "peace": "",
+    "peace_inverted": "",
+    "rock": "",
+    "stop": "toggleMediaStatus",
+    "stop_inverted": "",
+    "three": "",
+    "three2": "",
+    "two_up": "",
+    "two_up_inverted": ""
+}

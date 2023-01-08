@@ -3,8 +3,8 @@
 const { app, BrowserWindow } = require('electron');
 const nodePath = require('path');
 const nodeChildProcess = require('child_process');
-const { PythonShell } = require('python-shell');
 const electronIpcMain = require('electron').ipcMain;
+var children = [];
 
 const createWindow = () => {
 	const win = new BrowserWindow({
@@ -32,18 +32,17 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') {
+		children.forEach(function (child) {
+			child.kill();
+		});
 		app.quit();
 	}
 });
 
 electronIpcMain.on('runScript', () => {
 	// Windows
-	let script = nodeChildProcess.spawn('cmd.exe', [
-		'/c',
-		'test.bat',
-		'arg1',
-		'arg2',
-	]);
+	let script = nodeChildProcess.spawn('cmd.exe', ['/c', 'run.bat']);
+	children.push(script);
 
 	console.log('PID: ' + script.pid);
 

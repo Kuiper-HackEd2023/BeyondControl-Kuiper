@@ -3,7 +3,6 @@ import cv2
 from time import sleep
 from HandRecognition import HandRecognition
 from GestureActions import GestureActions
-# import HandRecognition
 
 
 def main():

@@ -1,0 +1,6 @@
+To run:
+  cd into src and run pip install -r .\requirements.txt
+  cd into electron_app and run npm i
+  Finally run the ui with npm start
+  
+note this is a windows only applications

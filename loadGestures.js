@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', get_json_data, false); // get_json
 //this function is in the event listener and will execute on page load
 function get_json_data() {
 	// Relative URL of external json file
-	var json_url = '../gesture_function_map.json';
+	var json_url = 'gesture_function_map.json';
 
 	//Build the XMLHttpRequest (aka AJAX Request)
 	xmlhttp = new XMLHttpRequest();
@@ -22,9 +22,8 @@ function get_json_data() {
 
 //this function appends the json data to the table 'gable'
 function append_json(data) {
-
 	var table = document.getElementById('gestures-table');
-	
+
 	Object.keys(data).forEach(function (gesture) {
 		var tr = document.createElement('tr');
 		tr.innerHTML =

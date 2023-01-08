@@ -40,7 +40,7 @@ electronIpcMain.on('runScript', () => {
 		children.pop().kill();
 	} else {
 		// Windows
-		let script = nodeChildProcess.spawn('python', ['../src/main.py']);
+		let script = nodeChildProcess.spawn('python', ['py/main.py']);
 		children.push(script);
 
 		console.log('PID: ' + script.pid);

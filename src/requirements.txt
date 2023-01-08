@@ -1,5 +1,6 @@
 pywin32
 pynput
+opencv-python
 psutil
 mediapipe
 tensorflow

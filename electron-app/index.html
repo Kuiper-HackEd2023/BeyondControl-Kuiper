@@ -2,27 +2,26 @@
 <html>
 	<head>
 		<style>
-			table,
-			th,
-			td {
-				border: 1px solid black;
-				border-collapse: collapse;
-				float: left;
+			table{
+				font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
 			}
 
 			th,
 			td {
-				width: 20%;
-				padding: 15px;
+				border: 1px solid #ddd;
+                padding: 8px;
 			}
 
 			th {
-				text-align: left;
+				padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #04AA6D;
+                color: white;
 			}
 
-			table {
-				border-spacing: 5px;
-			}
 
 			.guide {
 				text-decoration: underline;
@@ -53,12 +52,12 @@
 			<p id="info"></p>
 			<p />
 			<table id="gestures-table">
-				<tr>
-					<th>&nbsp&nbspGESTURE</th>
-					<th>&nbsp&nbspFUNCTION</th>
-					<th>&nbsp&nbspDELAY</th>
-				</tr>
-			</table>
+  <tr>
+    <th>Gesture</th>
+    <th>Function</th>
+    <th>Table</th>
+  </tr>
+</table>
 		</div>
 		<script src="./loadGestures.js"></script>
 		<button id="button">Click me</button>

@@ -76,7 +76,9 @@
 			let button = document.getElementById('button');
 			button.addEventListener('click', () => {
 				window.ipcRender.send('runScript');
-				button.innerHTML = 'Stop Script';
+				if (button.innerHTML === 'Start Script')
+					button.innerHTML = 'Stop Script';
+				else button.innerHTML = 'Start Script';
 			});
 		</script>
 	</body>

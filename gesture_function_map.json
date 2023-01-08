@@ -10,12 +10,12 @@
     "one": {"function": "", "delay": 0},
     "palm": {"function": "", "delay": 0},
     "peace": {"function": "maximizeWindow", "delay": 0.5},
-    "peace_inverted": {"function": "", "delay": 0},
+    "peace_inverted": {"function": "maximizeWindow", "delay": 0.5},
     "rock": {"function": "", "delay": 0},
     "stop": {"function": "toggleMediaStatus", "delay": 0.5},
     "stop_inverted": {"function": "", "delay": 0},
     "three": {"function": "", "delay": 0},
     "three2": {"function": "", "delay": 0},
-    "two_up": {"function": "", "delay": 0},
-    "two_up_inverted": {"function": "", "delay": 0}
+    "two_up": {"function": "maximizeWindow", "delay": 0.5},
+    "two_up_inverted": {"function": "maximizeWindow", "delay": 0.5}
 }

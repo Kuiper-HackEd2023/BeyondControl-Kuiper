@@ -2,44 +2,22 @@
 <html>
 	<head>
 		<style>
-			table,
-			th,
-			td {
+			div {
 				border: 1px solid black;
-				border-collapse: collapse;
-				float: left;
 			}
-
-			th,
-			td {
-				width: 20%;
-				padding: 15px;
+			.container {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: 1fr 1fr 1fr;
 			}
-
-			th {
-				text-align: left;
-			}
-
-			table {
-				border-spacing: 5px;
-			}
-
-			.guide {
-				text-decoration: underline;
-				text-align: center;
-			}
-
-			.odd {
-				color: #fff;
-				background: #666;
-			}
-
-			.even {
-				color: #666;
-			}
-
-			.hot {
-				border: 1px solid #f00;
+			.row-style {
+				/* border: 1px solid black; */
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: 1fr;
+				/* grid-row: auto; */
+				grid-column-start: 1;
+				grid-column-end: 4;
 			}
 			button {
 				position: fixed;
@@ -52,12 +30,17 @@
 		<div>
 			<p id="info"></p>
 			<p />
-			<table id="gestures-table">
-				<tr>
+			<div id="gestures-table" class="container">
+				<div class="row-style">
+					<p>GESTURE</p>
+					<p>FUNCTION</p>
+					<p>DELAY</p>
+				</div>
+				<!-- <tr>
 					<th>&nbsp&nbspGESTURE</th>
 					<th>&nbsp&nbspFUNCTION</th>
 					<th>&nbsp&nbspDELAY</th>
-				</tr>
+				</tr> -->
 			</table>
 		</div>
 		<script src="./loadGestures.js"></script>

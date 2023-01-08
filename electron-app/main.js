@@ -31,15 +31,15 @@ app.whenReady().then(() => {
 });
 
 app.on('window-all-closed', () => {
-	if (process.platform !== 'darwin') {
-		children.forEach(function (child) {
-			child.kill();
-		});
-		app.quit();
-	}
+	if (process.platform !== 'darwin') cleanExit();
 });
 
 electronIpcMain.on('runScript', () => {
+	if (children.length > 0) {
+		console.log('Script running, killing processs');
+		children.pop().kill();
+	}
+
 	// Windows
 	let script = nodeChildProcess.spawn('cmd.exe', ['/c', 'run.bat']);
 	children.push(script);
@@ -58,3 +58,11 @@ electronIpcMain.on('runScript', () => {
 		console.log('Exit Code: ' + code);
 	});
 });
+
+var cleanExit = function () {
+	children.forEach((child) => child.kill());
+	app.quit();
+};
+
+process.on('SIGINT', cleanExit); // catch ctrl-c
+process.on('SIGTERM', cleanExit); // catch kill

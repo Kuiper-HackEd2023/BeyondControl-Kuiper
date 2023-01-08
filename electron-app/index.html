@@ -61,7 +61,11 @@
 			</table>
 		</div>
 		<script src="./loadGestures.js"></script>
-		<button>Click me</button>
-		<script src="./renderer.js"></script>
+		<button id="button">Click me</button>
+		<script>
+			document.getElementById('button').addEventListener('click', () => {
+				window.ipcRender.send('runScript');
+			});
+		</script>
 	</body>
 </html>

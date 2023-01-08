@@ -58,7 +58,7 @@
 	<body>
 		<div>
 			<div id="switch">
-				<button id="button">GO!</button>
+				<button id="button">Start Script</button>
 			</div>
 
 			<p id="info"></p>
@@ -76,9 +76,9 @@
 			let button = document.getElementById('button');
 			button.addEventListener('click', () => {
 				window.ipcRender.send('runScript');
-				if (button.innerHTML === 'Start Script')
-					button.innerHTML = 'Stop Script';
-				else button.innerHTML = 'Start Script';
+				button.innerHTML === 'Stop Script'
+					? (button.innerHTML = 'Start Script')
+					: (button.innerHTML = 'Stop Script');
 			});
 		</script>
 	</body>

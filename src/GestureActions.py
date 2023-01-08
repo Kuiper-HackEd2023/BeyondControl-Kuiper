@@ -5,7 +5,7 @@ import psutil
 from pynput.keyboard import Key, Controller
 
 
-class GuestureActions:
+class GestureActions:
     _keyboard = Controller()
 
     def _updateActiveInfo(self):

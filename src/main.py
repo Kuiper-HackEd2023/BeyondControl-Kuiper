@@ -1,11 +1,19 @@
+import json
 import cv2
 from HandRecognition import HandRecognition
+from GestureActions import GestureActions
 # import HandRecognition
 
 
 def main():
+    func_map = None
+    actions = GestureActions()
+    with open('..\\gesture_function_map.json', 'r') as func_conf:
+        func_map = json.load(func_conf)
+
     camera = cv2.VideoCapture(0)
     gesture_detector = HandRecognition()
+
     while True:
         # getting a frame from the camera
         _, frame = camera.read()
@@ -17,8 +25,16 @@ def main():
 
         gesture = gesture_detector.getGestureName(frame_rgb)
 
-        if gesture != "":
-            print(gesture)
+        if gesture == "":
+            continue
+
+        print(gesture)
+        action_to_run = func_map[gesture]
+        if action_to_run == "":
+            continue
+
+        gesture_func: function = getattr(actions, action_to_run)
+        gesture_func()
 
 
 if __name__ == "__main__":

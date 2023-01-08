@@ -3,15 +3,24 @@ import cv2
 from time import sleep
 from HandRecognition import HandRecognition
 from GestureActions import GestureActions
+import sys
+import signal
+
+camera = cv2.VideoCapture(0)
+
+
+def signal_handler(sig, frame):
+    camera.release()
+    exit(0)
 
 
 def main():
+    signal.signal(signal.SIGINT, signal_handler)
     func_map = None
     actions = GestureActions()
     with open('..\\gesture_function_map.json', 'r') as func_conf:
         func_map = json.load(func_conf)
 
-    camera = cv2.VideoCapture(0)
     gesture_detector = HandRecognition()
 
     while True:
@@ -28,7 +37,6 @@ def main():
         if gesture == "":
             continue
 
-        print(gesture)
         action_to_run = func_map[gesture]["function"]
         delay = func_map[gesture]["delay"]
         if action_to_run == "":

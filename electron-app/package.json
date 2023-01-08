@@ -1,0 +1,25 @@
+{
+	"name": "electron-app",
+	"version": "1.0.0",
+	"description": "Electron UI for BeyondControl.",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron-forge start",
+		"package": "electron-forge package",
+		"make": "electron-forge make"
+	},
+	"author": "team-kuiper",
+	"license": "ISC",
+	"devDependencies": {
+		"@electron-forge/cli": "^6.0.4",
+		"@electron-forge/maker-deb": "^6.0.4",
+		"@electron-forge/maker-rpm": "^6.0.4",
+		"@electron-forge/maker-squirrel": "^6.0.4",
+		"@electron-forge/maker-zip": "^6.0.4",
+		"electron": "^22.0.0"
+	},
+	"dependencies": {
+		"electron-forge": "^5.2.4",
+		"electron-squirrel-startup": "^1.0.0"
+	}
+}

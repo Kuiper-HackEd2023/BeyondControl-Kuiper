@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			table {
+				font-family: Arial, Helvetica, sans-serif;
+				border-collapse: collapse;
+				width: 100%;
+			}
+
+			th,
+			td {
+				border: 1px solid #ddd;
+				padding: 8px;
+			}
+
+			th {
+				padding-top: 12px;
+				padding-bottom: 12px;
+				text-align: left;
+				background-color: #04aa6d;
+				color: white;
+			}
+
+			.guide {
+				text-decoration: underline;
+				text-align: center;
+			}
+
+			.odd {
+				color: #fff;
+				background: #666;
+			}
+
+			.even {
+				color: #666;
+			}
+
+			.hot {
+				border: 1px solid #f00;
+			}
+			#switch {
+				text-align: center;
+			}
+			button {
+				width: 200px;
+				height: 50px;
+				margin: 50px 0;
+				background: #e74c3c;
+				border: none;
+				border-radius: 10px;
+				color: #fff;
+				font-size: 14px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div id="switch">
+				<button id="button">Start Script</button>
+			</div>
+
+			<p id="info"></p>
+			<p />
+			<table id="gestures-table">
+				<tr>
+					<th>Gesture</th>
+					<th>Function</th>
+					<th>Delay</th>
+				</tr>
+			</table>
+		</div>
+		<script src="./loadGestures.js"></script>
+		<script>
+			let button = document.getElementById('button');
+			button.addEventListener('click', () => {
+				window.ipcRender.send('runScript');
+				button.innerHTML === 'Stop Script'
+					? (button.innerHTML = 'Start Script')
+					: (button.innerHTML = 'Stop Script');
+			});
+		</script>
+	</body>
+</html>

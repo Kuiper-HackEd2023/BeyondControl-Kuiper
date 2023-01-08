@@ -1,5 +1,6 @@
 import json
 import cv2
+from time import sleep
 from HandRecognition import HandRecognition
 from GestureActions import GestureActions
 # import HandRecognition
@@ -29,12 +30,14 @@ def main():
             continue
 
         print(gesture)
-        action_to_run = func_map[gesture]
+        action_to_run = func_map[gesture]["function"]
+        delay = func_map[gesture]["delay"]
         if action_to_run == "":
             continue
 
         gesture_func: function = getattr(actions, action_to_run)
         gesture_func()
+        sleep(delay)
 
 
 if __name__ == "__main__":

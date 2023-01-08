@@ -22,19 +22,35 @@ function get_json_data() {
 
 //this function appends the json data to the table 'gable'
 function append_json(data) {
+
 	var table = document.getElementById('gestures-table');
+	
 	Object.keys(data).forEach(function (gesture) {
-		var tr = document.createElement('tr');
-		tr.innerHTML =
-			'<td>' +
-			gesture +
-			'</td>' +
-			'<td>' +
-			data[gesture].function +
-			'</td>' +
-			'<td>' +
-			data[gesture].delay +
-			'</td>';
-		table.appendChild(tr);
+		// var tr = document.createElement('tr');
+		let current_row = document.createElement("div");
+		current_row.className = "row-style";
+		var row_1 = document.createElement("p");
+		row_1.innerHTML = gesture;
+		var row_2 = document.createElement("p");
+		row_2.innerHTML = data[gesture].function;
+		var row_3 = document.createElement("p");
+		row_3.innerHTML = data[gesture].delay;
+		// mycontent.appendChild(document.createTextNode("This is a paragraph"));
+		current_row.appendChild(row_1);
+		current_row.appendChild(row_2);
+		current_row.appendChild(row_3);
+
+	table.appendChild(current_row);
+		// tr.innerHTML =
+		// 	'<td>' +
+		// 	gesture +
+		// 	'</td>' +
+		// 	'<td>' +
+		// 	data[gesture].function +
+		// 	'</td>' +
+		// 	'<td>' +
+		// 	data[gesture].delay +
+		// 	'</td>';
+		// table.appendChild(tr);
 	});
 }

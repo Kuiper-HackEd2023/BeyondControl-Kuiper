@@ -3,7 +3,6 @@ import mediapipe as mp
 import tensorflow as tf
 from time import sleep
 from keras.models import load_model
-from GestureActions import GestureActions
 
 
 class HandRecognition:

@@ -40,27 +40,39 @@
 			.hot {
 				border: 1px solid #f00;
 			}
-			button {
-				position: fixed;
-				bottom: 0;
-				right: 0;
+			#switch {
+				text-align: center;
 			}
+            button {
+                width: 200px;
+                height: 50px;
+                margin: 50px 0;
+                background: #E74C3C;
+                border: none;
+                border-radius: 10px;
+                color: #fff;
+                font-size: 14px;
+                font-weight: bold;
+            }
 		</style>
 	</head>
 	<body>
 		<div>
+            <div id="switch">
+                <button id="button">GO!</button>
+            </div>
+            
 			<p id="info"></p>
 			<p />
 			<table id="gestures-table">
   <tr>
     <th>Gesture</th>
     <th>Function</th>
-    <th>Table</th>
+    <th>Delay</th>
   </tr>
 </table>
 		</div>
 		<script src="./loadGestures.js"></script>
-		<button id="button">Click me</button>
 		<script>
 			document.getElementById('button').addEventListener('click', () => {
 				window.ipcRender.send('runScript');

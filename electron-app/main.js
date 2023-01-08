@@ -38,25 +38,25 @@ electronIpcMain.on('runScript', () => {
 	if (children.length > 0) {
 		console.log('Script running, killing processs');
 		children.pop().kill();
+	} else {
+		// Windows
+		let script = nodeChildProcess.spawn('cmd.exe', ['/c', 'run.bat']);
+		children.push(script);
+
+		console.log('PID: ' + script.pid);
+
+		script.stdout.on('data', (data) => {
+			console.log('stdout: ' + data);
+		});
+
+		script.stderr.on('data', (err) => {
+			console.log('stderr: ' + err);
+		});
+
+		script.on('exit', (code) => {
+			console.log('Exit Code: ' + code);
+		});
 	}
-
-	// Windows
-	let script = nodeChildProcess.spawn('cmd.exe', ['/c', 'run.bat']);
-	children.push(script);
-
-	console.log('PID: ' + script.pid);
-
-	script.stdout.on('data', (data) => {
-		console.log('stdout: ' + data);
-	});
-
-	script.stderr.on('data', (err) => {
-		console.log('stderr: ' + err);
-	});
-
-	script.on('exit', (code) => {
-		console.log('Exit Code: ' + code);
-	});
 });
 
 var cleanExit = function () {

@@ -42,8 +42,8 @@ class GuestureActions:
         self._keyboard.press(volume_key)
         return
 
-    def changeMediaStatus(self):
+    def toggleMediaStatus(self):
         self._keyboard.press(Key.media_play_pause)
 
-    def tester(self):
-        self._updateActiveInfo()
+    def toggleMute(self):
+        self._keyboard.press(Key.media_volume_mute)

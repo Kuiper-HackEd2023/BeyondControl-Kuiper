@@ -30,6 +30,10 @@ class GestureActions:
 
     def minimizeWindow(self):
         self._updateActiveInfo()
+
+        if self._current_gui_id < 0:
+            return
+
         win32gui.ShowWindow(self._current_gui_id, win32con.SW_MINIMIZE)
         self._windows.append(self._current_gui_id)
 
